@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "email": "developer@localhost.com",
+      "password": "@developer",
+      "name": "Developer",
+      "role": "admin",
+      "status": "active",
+      "avatar": "https://i.pravatar.cc/150?img=24",
+      "about": "Passionate about technology and innovation. Always learning something new.",
+      "phone": "+1 234 567 8900",
+      "location": "New York, USA",
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2025-05-01T00:00:00.000Z"
+    },
+    {
+      "id": "9",
+      "email": "user@localhost.com",
+      "password": "@developer",
+      "name": "User",
+      "role": "user",
+      "status": "active",
+      "avatar": "https://i.pravatar.cc/150?img=10",
+      "about": "Passionate about technology and innovation. Always learning something new.",
+      "phone": "+1 234 567 8900",
+      "location": "New York, USA",
+      "createdAt": "2025-05-01T00:00:00.000Z",
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Beras IR64",
+      "categoryId": "1",
+      "unit": "Kg",
+      "stockSystem": 1500,
+      "stockPhysical": 1500,
+      "minStock": 500,
+      "price": 12000,
+      "description": "Beras IR64 kualitas premium dari Jawa Timur",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Jagung Pipilan Kering",
+      "categoryId": "2",
+      "unit": "Kg",
+      "stockSystem": 2000,
+      "stockPhysical": 2000,
+      "minStock": 800,
+      "price": 5000,
+      "description": "Jagung pipilan kering siap olah",
+      "createdAt": "2024-01-02T00:00:00.000Z",
+      "updatedAt": "2024-01-02T00:00:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Padi",
+      "slug": "padi",
+      "description": "Produk padi dan beras",
+      "icon": "grain",
+      "color": "#FFD700"
+    },
+    {
+      "id": "2",
+      "name": "Jagung",
+      "slug": "jagung",
+      "description": "Produk jagung dan olahannya",
+      "icon": "corn",
+      "color": "#F4A460"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Design Landing Page",
+      "description": "Create a responsive landing page for the new product.",
+      "status": "in-progress",
+      "priority": "high",
+      "dueDate": "2024-07-15T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Fix Login Bug",
+      "description": "Resolve the issue causing login failures for some users.",
+      "status": "pending",
+      "priority": "medium",
+      "dueDate": "2024-07-10T00:00:00.000Z"
+    }
+  ]
+}

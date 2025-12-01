@@ -1,0 +1,161 @@
+# Claude Code AI Agent Rules for Expo Boilerplate
+
+## Project Overview
+This is an Expo React Native boilerplate with TypeScript, NativeWind (Tailwind CSS), authentication, and theming support.
+
+## Key Technologies
+- **Framework**: Expo ~54.0.0 with Expo Router for file-based routing
+- **Language**: TypeScript 5.9+
+- **Styling**: NativeWind 4.0 (Tailwind CSS for React Native)
+- **State Management**: React Context API (AuthContext, ThemeContext)
+- **HTTP Client**: Axios with custom interceptors
+- **Storage**: Expo SecureStore for sensitive data
+- **UI Components**: Custom reusable components with LucideIcon integration
+
+## Code Style & Standards
+
+### TypeScript
+- Use strict TypeScript settings
+- Define types in `src/types/` directory
+- Use interface for component props
+- Use type for union types and API responses
+- Avoid `any` type - use `unknown` if necessary
+
+### Component Structure
+- Use functional components with hooks
+- Prefer arrow function syntax for components
+- Use React.FC only when explicitly needed
+- Place component files in appropriate directories:
+  - `src/components/common/` - Generic UI components (Button, Input, Card)
+  - `src/components/shared/` - Shared business components (ConfirmDialog, FormInput)
+  - `src/components/auth/` - Authentication-related components
+  - `src/components/users/` - User-specific components
+
+### Styling Guidelines
+- Use NativeWind utility classes for styling
+- Access theme colors via `useTheme()` hook
+- Use `className` prop for NativeWind styling
+- Avoid inline styles unless dynamic
+- Follow Tailwind naming conventions
+
+### Path Aliases
+Always use configured path aliases:
+- `@/` - src root
+- `@components/` - src/components
+- `@services/` - src/services
+- `@types/` - src/types
+- `@utils/` - src/utils
+- `@contexts/` - src/contexts
+- `@hooks/` - src/hooks
+- `@theme/` - src/theme
+- `@assets/` - src/assets
+
+### File Naming
+- Components: PascalCase (e.g., `UserCard.tsx`, `Button.tsx`)
+- Hooks: camelCase with 'use' prefix (e.g., `useAuth.ts`)
+- Services: camelCase with 'Service' suffix (e.g., `authService.ts`)
+- Types: camelCase with '.types' suffix (e.g., `user.types.ts`)
+- Utils: camelCase (e.g., `validation.ts`, `constants.ts`)
+
+## Architecture Patterns
+
+### Authentication
+- Use `AuthContext` for global auth state
+- Access via `useAuth()` hook
+- Protected routes use `ProtectedRoute` wrapper
+- Token stored in SecureStore
+- Auto-inject token in API requests via interceptor
+
+### API Services
+- All API calls go through `src/services/api.ts`
+- Service files in `src/services/` (e.g., `authService.ts`, `userService.ts`)
+- Use generic `api.get<T>()`, `api.post<T>()` methods
+- Error handling via Axios interceptors
+- Mock data available in `src/services/mockApi/`
+
+### Routing
+- File-based routing with Expo Router
+- Route groups:
+  - `app/(auth)/` - Authentication screens (login, register)
+  - `app/(protected)/` - Authenticated user screens
+  - `app/(admin)/` - Admin-only screens
+- Use `router.push()`, `router.replace()` for navigation
+
+### Theme System
+- Use `ThemeContext` for theme management
+- Access via `useTheme()` hook
+- Supports light/dark/auto modes
+- Colors defined in `src/theme/colors.ts`
+- Theme-aware components use `colors` from `useTheme()`
+
+## Common Operations
+
+### Adding a New Screen
+1. Create file in appropriate route group under `app/`
+2. Use `_layout.tsx` if custom layout needed
+3. Wrap with `ProtectedRoute` if authentication required
+4. Import and use theme colors via `useTheme()`
+
+### Creating a New Component
+1. Create file in `src/components/[category]/`
+2. Define prop types interface
+3. Use NativeWind for styling
+4. Export as default or named export
+5. Add to index file if needed
+
+### Adding API Service
+1. Define types in `src/types/`
+2. Create service file in `src/services/`
+3. Use `api` instance from `src/services/api.ts`
+4. Add mock data in `src/services/mockApi/` if needed
+5. Export service methods
+
+### Creating Custom Hook
+1. Create file in `src/hooks/`
+2. Name with 'use' prefix
+3. Follow React hooks rules
+4. Export as named export
+
+## Testing Credentials
+- Admin: developer@localhost.com / @developer
+- User: user@localhost.com / @developer
+
+## Environment Configuration
+- Development: Uses localhost:3001 for API
+- Production: Configure in `src/utils/constants.ts`
+- Multi-environment support: app.json, app.staging.json, app.prod.json
+
+## Build Commands
+- Development: `npm start`
+- Type check: `npm run type-check`
+- Lint: `npm run lint`
+- Build (local): `npm run build`
+- Staging build: `npm run build:staging`
+- Production build: `npm run build:prod`
+
+## Important Notes
+- Always run type-check before committing
+- Use Expo SecureStore for sensitive data only
+- Handle loading states in components
+- Show error messages via Toast
+- Validate forms using `src/utils/validation.ts`
+- Clean imports (remove unused)
+- Follow React Native performance best practices
+
+## Security Considerations
+- Never log sensitive data
+- Validate all user inputs
+- Use SecureStore for tokens
+- Implement proper error handling
+- Don't expose API keys in code
+- Use environment variables for configs
+
+## When Adding Features
+1. Check existing patterns first
+2. Maintain consistent folder structure
+3. Reuse existing components when possible
+4. Add proper TypeScript types
+5. Update relevant documentation
+6. Test on both light and dark themes
+7. Ensure responsive design
+8. Handle loading and error states

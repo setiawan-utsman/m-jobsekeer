@@ -1,0 +1,42 @@
+{
+  "cli": {
+    "version": ">= 3.0.0"
+  },
+  "build": {
+    "development": {
+      "distribution": "internal",
+      "developmentClient": true,
+      "autoIncrement": true,
+      "env": {
+        "APP_ENV": "development",
+        "API_BASE_URL": "http://localhost:3000"
+      }
+    },
+    "staging": {
+      "distribution": "internal",
+      "autoIncrement": true,
+      "env": {
+        "APP_ENV": "staging",
+        "API_BASE_URL": "https://api.staging.com"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "autoIncrement": true,
+      "env": {
+        "APP_ENV": "production",
+        "API_BASE_URL": "https://api.production.com"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./credentials/google-service-account.json"
+      },
+      "ios": {
+        "appleId": "you@example.com"
+      }
+    }
+  }
+}
